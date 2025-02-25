@@ -46,11 +46,11 @@ public class UserService {
         return userDAO.save(user);
     }
 
-    public User findByIdAndUpdatePassword(UUID id, UserDTO body){
+   /* public User findByIdAndUpdatePassword(UUID id, UserDTO body){
         User user = this.findById(id);
         user.setPassword(body.password());
         return userDAO.save(user);
-    }
+    }*/
 
     public void deleteById(UUID id){
         User user = this.findById(id);

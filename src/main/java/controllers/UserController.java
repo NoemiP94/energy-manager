@@ -33,10 +33,10 @@ public class UserController {
         return userService.findByIdAndUpdate(currentUser.getUuid(), body);
     }
 
-    @PutMapping("/me/pw")
+    /*  @PutMapping("/me/pw")
     public User getMeByIdAndUpdatePassword(@AuthenticationPrincipal User currentUser, @RequestBody UserDTO body) {
         return userService.findByIdAndUpdatePassword(currentUser.getUuid(), body);
-    }
+    }*/
 
     @DeleteMapping("/me")
     public void getMeAnDelete(@AuthenticationPrincipal User currentUser) {

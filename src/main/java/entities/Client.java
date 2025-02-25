@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -48,6 +49,9 @@ public class Client {
     @OneToOne
     @JoinColumn(name = "operativeAddress_id")
     private Address operativeAddress;
-    //invoices
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Invoice> invoices;
 
 }
