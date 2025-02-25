@@ -1,11 +1,13 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,8 +25,12 @@ public class Town {
     private String name;
     @Column(name = "province_code")
     private String provinceCode;
-    //list addresses
-    //Province province
+
+    @OneToMany(mappedBy = "town", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ToString.Exclude
+    private List<Address> addresses;
+
     @ManyToOne
     @JoinColumn(name = "province_name")
     private Province province;

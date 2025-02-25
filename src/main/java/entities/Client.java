@@ -40,8 +40,14 @@ public class Client {
     String logo;
     @Enumerated(EnumType.STRING)
     private ClientType clientType;
-    //legalAddress
-    //operativeAddress
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address legalAddress;
+
+    @OneToOne
+    @JoinColumn(name = "operativeAddress_id")
+    private Address operativeAddress;
     //invoices
 
 }
