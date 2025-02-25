@@ -10,9 +10,6 @@ public record UserDTO(
         @NotEmpty(message = "email cannot be empty")
         @Email
         String email,
-        @NotNull(message = "username cannot be null")
-        @NotEmpty(message = "username cannot be empty")
-        String username,
         @NotNull(message = "name cannot be null")
         @NotEmpty(message = "name cannot be empty")
         String name,

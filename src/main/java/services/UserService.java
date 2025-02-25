@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import payloads.user.UserDTO;
 import repositories.UserDAO;
 
+
 import java.io.IOException;
 import java.util.UUID;
 
@@ -46,11 +47,6 @@ public class UserService {
         return userDAO.save(user);
     }
 
-   /* public User findByIdAndUpdatePassword(UUID id, UserDTO body){
-        User user = this.findById(id);
-        user.setPassword(body.password());
-        return userDAO.save(user);
-    }*/
 
     public void deleteById(UUID id){
         User user = this.findById(id);

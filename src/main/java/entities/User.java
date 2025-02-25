@@ -14,8 +14,7 @@ import java.util.UUID;
 @Entity
 @Table(name="users")
 @Getter
-@Setter@NoArgsConstructor
-@AllArgsConstructor
+@Setter
 @ToString
 @JsonIgnoreProperties({"password", "authorities", "enabled", "credentialsNonExpired", "accountNonExpired", "accountNonLocked"})
 public class User implements UserDetails {
@@ -38,22 +37,27 @@ public class User implements UserDetails {
     }
 
     @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
